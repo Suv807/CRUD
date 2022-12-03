@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD Operation with postgreSql</title>
+</head>
+<body>
+     <center>
+
+         <h1>How to Edit Emp Details with PostgreSQL</h1>
+         <hr/>
+         <form method="POST" action="/Update/{{EmpModel.id}}">
+             {% csrf_token %}
+
+         <table border="1">
+             <tr>
+                 <td> Employee Id</td>
+                 <td><input type="text" name="id" value="{{EmpModel.id}}" readonly></td>
+             </tr>
+             <tr>
+                 <td> Employee Name</td>
+                 <td><input type="text" name="empname" value="{{EmpModel.empname}}"></td>
+             </tr>
+             <tr>
+                 <td> Email</td>
+                 <td><input type="text" name="email" value="{{EmpModel.email}}"></td>
+             </tr>
+             <tr>
+                 <td> Occupation</td>
+<!--                 #<td><input type="text" name="occupation" value="{{EmpModel.occupation}}"></td>-->
+                 <td><select name="occupation" value="{{EmpModel.occupation}}">
+                     <option selected disabled="true">-- select Occupation --</option>
+                     <option>programmer</option>
+                     <option>HR</option>
+                     <option>Sales Manager</option>
+                 </select>
+                 </td>
+             </tr>
+
+             <tr>
+                 <td> Salary</td>
+                 <td><input type="text" name="salary" value="{{EmpModel.salary}}"></td>
+             </tr>
+             <tr>
+                 <td> Gender</td>
+                 <td><input type="text" name="gender" value="{{EmpModel.gender}}"></td>
+             </tr>
+             <tr>
+                 <td><input type="submit" value="Update Record"></td>
+             </tr>
+
+         </table>
+
+          <a href="{% url 'Showemp' %}"> Go to Home Page</a>
+         </form>
+     </center>
+
+</body>
+</html>

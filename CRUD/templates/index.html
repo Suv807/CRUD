@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD Operation with postgreSql</title>
+</head>
+<body>
+     <center>
+
+         <h1>WElCOME</h1>
+         <hr/>
+         <a href="{% url 'Insertemp' %}"> Create New Employee</a>
+         <table border="1">
+             <tr>
+                 <th>Employee Id</th>
+                 <th>Employee Name</th>
+                 <th>Email</th>
+                 <th>Occupation</th>
+                 <th>Salary</th>
+                 <th>Gender</th>
+
+             </tr>
+             {% for result in data %}
+             <tr>
+                 <td>{{result.id}}</td>
+                 <td>{{result.empname}}</td>
+                 <td>{{result.email}}</td>
+                 <td>{{result.occupation}}</td>
+                 <td>{{result.salary}}</td>
+                 <td>{{result.gender}}</td>
+                 <td><a href ="Edit/{{result.id}}"/>Edit</a></td>
+                 <td><a href ="Delete/{{result.id}}"/>Delete</a></td>
+             </tr>
+             {% endfor %}
+
+         </table>
+     </center>
+
+</body>
+</html>
